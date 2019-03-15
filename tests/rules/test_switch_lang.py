@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 
 import pytest
-from thefuck.rules import switch_lang
-from thefuck.types import Command
+from theheck.rules import switch_lang
+from theheck.types import Command
 
 
 @pytest.mark.parametrize('command', [

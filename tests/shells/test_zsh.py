@@ -2,7 +2,7 @@
 
 import os
 import pytest
-from thefuck.shells.zsh import Zsh
+from theheck.shells.zsh import Zsh
 
 
 @pytest.mark.usefixtures('isfile', 'no_memoize', 'no_cache')
@@ -14,13 +14,13 @@ class TestZsh(object):
     @pytest.fixture(autouse=True)
     def shell_aliases(self):
         os.environ['TF_SHELL_ALIASES'] = (
-            'fuck=\'eval $(thefuck $(fc -ln -1 | tail -n 1))\'\n'
+            'heck=\'eval $(theheck $(fc -ln -1 | tail -n 1))\'\n'
             'l=\'ls -CF\'\n'
             'la=\'ls -A\'\n'
             'll=\'ls -alF\'')
 
     @pytest.mark.parametrize('before, after', [
-        ('fuck', 'eval $(thefuck $(fc -ln -1 | tail -n 1))'),
+        ('heck', 'eval $(theheck $(fc -ln -1 | tail -n 1))'),
         ('pwd', 'pwd'),
         ('ll', 'ls -alF')])
     def test_from_shell(self, before, after, shell):
@@ -37,22 +37,22 @@ class TestZsh(object):
 
     def test_get_aliases(self, shell):
         assert shell.get_aliases() == {
-            'fuck': 'eval $(thefuck $(fc -ln -1 | tail -n 1))',
+            'heck': 'eval $(theheck $(fc -ln -1 | tail -n 1))',
             'l': 'ls -CF',
             'la': 'ls -A',
             'll': 'ls -alF'}
 
     def test_app_alias(self, shell):
-        assert 'fuck () {' in shell.app_alias('fuck')
+        assert 'heck () {' in shell.app_alias('heck')
         assert 'FUCK () {' in shell.app_alias('FUCK')
-        assert 'thefuck' in shell.app_alias('fuck')
-        assert 'PYTHONIOENCODING' in shell.app_alias('fuck')
+        assert 'theheck' in shell.app_alias('heck')
+        assert 'PYTHONIOENCODING' in shell.app_alias('heck')
 
     def test_app_alias_variables_correctly_set(self, shell):
-        alias = shell.app_alias('fuck')
-        assert "fuck () {" in alias
+        alias = shell.app_alias('heck')
+        assert "heck () {" in alias
         assert 'TF_SHELL=zsh' in alias
-        assert "TF_ALIAS=fuck" in alias
+        assert "TF_ALIAS=heck" in alias
         assert 'PYTHONIOENCODING=utf-8' in alias
         assert 'TF_SHELL_ALIASES=$(alias)' in alias
 
@@ -70,6 +70,6 @@ class TestZsh(object):
         assert not shell.how_to_configure().can_configure_automatically
 
     def test_info(self, shell, mocker):
-        patch = mocker.patch('thefuck.shells.zsh.Popen')
+        patch = mocker.patch('theheck.shells.zsh.Popen')
         patch.return_value.stdout.read.side_effect = [b'3.5.9']
         assert shell.info() == 'ZSH 3.5.9'
