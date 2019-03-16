@@ -46,15 +46,15 @@ class TestSettingsFromFile(object):
 @pytest.mark.usefixture('load_source')
 class TestSettingsFromEnv(object):
     def test_from_env(self, os_environ, settings):
-        os_environ.update({'THEHELL_RULES': 'bash:lisp',
-                           'THEHELL_EXCLUDE_RULES': 'git:vim',
-                           'THEHELL_WAIT_COMMAND': '55',
-                           'THEHELL_REQUIRE_CONFIRMATION': 'true',
-                           'THEHELL_NO_COLORS': 'false',
-                           'THEHELL_PRIORITY': 'bash=10:lisp=wrong:vim=15',
-                           'THEHELL_WAIT_SLOW_COMMAND': '999',
-                           'THEHELL_SLOW_COMMANDS': 'lein:react-native:./gradlew',
-                           'THEHELL_NUM_CLOSE_MATCHES': '359'})
+        os_environ.update({'THEHECK_RULES': 'bash:lisp',
+                           'THEHECK_EXCLUDE_RULES': 'git:vim',
+                           'THEHECK_WAIT_COMMAND': '55',
+                           'THEHECK_REQUIRE_CONFIRMATION': 'true',
+                           'THEHECK_NO_COLORS': 'false',
+                           'THEHECK_PRIORITY': 'bash=10:lisp=wrong:vim=15',
+                           'THEHECK_WAIT_SLOW_COMMAND': '999',
+                           'THEHECK_SLOW_COMMANDS': 'lein:react-native:./gradlew',
+                           'THEHECK_NUM_CLOSE_MATCHES': '359'})
         settings.init()
         assert settings.rules == ['bash', 'lisp']
         assert settings.exclude_rules == ['git', 'vim']
@@ -67,7 +67,7 @@ class TestSettingsFromEnv(object):
         assert settings.num_close_matches == 359
 
     def test_from_env_with_DEFAULT(self, os_environ, settings):
-        os_environ.update({'THEHELL_RULES': 'DEFAULT_RULES:bash:lisp'})
+        os_environ.update({'THEHECK_RULES': 'DEFAULT_RULES:bash:lisp'})
         settings.init()
         assert settings.rules == const.DEFAULT_RULES + ['bash', 'lisp']
 

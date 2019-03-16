@@ -22,10 +22,10 @@ class TestFish(object):
 
     @pytest.mark.parametrize('key, value', [
         ('TF_OVERRIDDEN_ALIASES', 'cut,git,sed'),  # legacy
-        ('THEHELL_OVERRIDDEN_ALIASES', 'cut,git,sed'),
-        ('THEHELL_OVERRIDDEN_ALIASES', 'cut, git, sed'),
-        ('THEHELL_OVERRIDDEN_ALIASES', ' cut,\tgit,sed\n'),
-        ('THEHELL_OVERRIDDEN_ALIASES', '\ncut,\n\ngit,\tsed\r')])
+        ('THEHECK_OVERRIDDEN_ALIASES', 'cut,git,sed'),
+        ('THEHECK_OVERRIDDEN_ALIASES', 'cut, git, sed'),
+        ('THEHECK_OVERRIDDEN_ALIASES', ' cut,\tgit,sed\n'),
+        ('THEHECK_OVERRIDDEN_ALIASES', '\ncut,\n\ngit,\tsed\r')])
     def test_get_overridden_aliases(self, shell, os_environ, key, value):
         os_environ[key] = value
         overridden = shell._get_overridden_aliases()

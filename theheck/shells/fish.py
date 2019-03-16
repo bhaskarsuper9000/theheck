@@ -38,7 +38,7 @@ def _get_aliases(overridden):
 
 class Fish(Generic):
     def _get_overridden_aliases(self):
-        overridden = os.environ.get('THEHELL_OVERRIDDEN_ALIASES',
+        overridden = os.environ.get('THEHECK_OVERRIDDEN_ALIASES',
                                     os.environ.get('TF_OVERRIDDEN_ALIASES', ''))
         default = {'cd', 'grep', 'ls', 'man', 'open'}
         for alias in overridden.split(','):

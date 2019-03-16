@@ -45,22 +45,22 @@ DEFAULT_SETTINGS = {'rules': DEFAULT_RULES,
                     'num_close_matches': 3,
                     'env': {'LC_ALL': 'C', 'LANG': 'C', 'GIT_TRACE': '1'}}
 
-ENV_TO_ATTR = {'THEHELL_RULES': 'rules',
-               'THEHELL_EXCLUDE_RULES': 'exclude_rules',
-               'THEHELL_WAIT_COMMAND': 'wait_command',
-               'THEHELL_REQUIRE_CONFIRMATION': 'require_confirmation',
-               'THEHELL_NO_COLORS': 'no_colors',
-               'THEHELL_DEBUG': 'debug',
-               'THEHELL_PRIORITY': 'priority',
-               'THEHELL_HISTORY_LIMIT': 'history_limit',
-               'THEHELL_ALTER_HISTORY': 'alter_history',
-               'THEHELL_WAIT_SLOW_COMMAND': 'wait_slow_command',
-               'THEHELL_SLOW_COMMANDS': 'slow_commands',
-               'THEHELL_REPEAT': 'repeat',
-               'THEHELL_INSTANT_MODE': 'instant_mode',
-               'THEHELL_NUM_CLOSE_MATCHES': 'num_close_matches'}
+ENV_TO_ATTR = {'THEHECK_RULES': 'rules',
+               'THEHECK_EXCLUDE_RULES': 'exclude_rules',
+               'THEHECK_WAIT_COMMAND': 'wait_command',
+               'THEHECK_REQUIRE_CONFIRMATION': 'require_confirmation',
+               'THEHECK_NO_COLORS': 'no_colors',
+               'THEHECK_DEBUG': 'debug',
+               'THEHECK_PRIORITY': 'priority',
+               'THEHECK_HISTORY_LIMIT': 'history_limit',
+               'THEHECK_ALTER_HISTORY': 'alter_history',
+               'THEHECK_WAIT_SLOW_COMMAND': 'wait_slow_command',
+               'THEHECK_SLOW_COMMANDS': 'slow_commands',
+               'THEHECK_REPEAT': 'repeat',
+               'THEHECK_INSTANT_MODE': 'instant_mode',
+               'THEHECK_NUM_CLOSE_MATCHES': 'num_close_matches'}
 
-SETTINGS_HEADER = u"""# The Fuck settings file
+SETTINGS_HEADER = u"""# The Heck settings file
 #
 # The rules are defined as in the example bellow:
 #
@@ -72,7 +72,7 @@ SETTINGS_HEADER = u"""# The Fuck settings file
 
 """
 
-ARGUMENT_PLACEHOLDER = 'THEHELL_ARGUMENT_PLACEHOLDER'
+ARGUMENT_PLACEHOLDER = 'THEHECK_ARGUMENT_PLACEHOLDER'
 
 CONFIGURATION_TIMEOUT = 60
 

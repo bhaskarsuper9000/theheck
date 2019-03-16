@@ -33,7 +33,7 @@ class Bash(Generic):
                            if settings.alter_history else ''))
 
     def instant_mode_alias(self, alias_name):
-        if os.environ.get('THEHELL_INSTANT_MODE', '').lower() == 'true':
+        if os.environ.get('THEHECK_INSTANT_MODE', '').lower() == 'true':
             mark = USER_COMMAND_MARK + '\b' * len(USER_COMMAND_MARK)
             return '''
                 export PS1="{user_command_mark}$PS1";
@@ -44,8 +44,8 @@ class Bash(Generic):
             log_path = os.path.join(
                 gettempdir(), 'theheck-script-log-{}'.format(uuid4().hex))
             return '''
-                export THEHELL_INSTANT_MODE=True;
-                export THEHELL_OUTPUT_LOG={log};
+                export THEHECK_INSTANT_MODE=True;
+                export THEHECK_OUTPUT_LOG={log};
                 theheck --shell-logger {log};
                 rm {log};
                 exit
